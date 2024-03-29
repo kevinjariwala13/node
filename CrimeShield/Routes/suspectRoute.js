@@ -11,7 +11,7 @@ const router = express.Router();
 //   return res.status(404).json({ msg: "Hello Lawdwe!" });
 // });
 
-router.route("/").get(suspectController.showData);
+router.route("/showdata").get(suspectController.showData);
 
 router
   .route("/insert")
@@ -22,6 +22,8 @@ router
   .get(suspectController.showonerecord)
   .patch(suspectController.updateSuspect)
   .delete(suspectController.deleteSuspect);
+
+// router.route("/showdata/:id").get(suspectController.showonerecord);
 
 // router.post("/login", async (req, res) => {
 //   const u = req.body;

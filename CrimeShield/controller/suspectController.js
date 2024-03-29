@@ -77,7 +77,7 @@ const showonerecord = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      error: err,
+      error: err.message,
     });
   }
 };
