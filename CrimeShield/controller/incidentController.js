@@ -40,6 +40,7 @@ const createIncident = async (req, res) => {
       state,
       city,
       userId,
+      policestation,
       dateofincident,
       reasonofdelay,
       location,
@@ -50,11 +51,13 @@ const createIncident = async (req, res) => {
       req.body.evidence = req.file.filename;
     }
     console.log(req.file);
+    console.log(req.body);
     const data = await Incident.create({
       category,
       state,
       city,
       userId,
+      policestation,
       dateofincident,
       reasonofdelay,
       location,
@@ -73,6 +76,7 @@ const createIncident = async (req, res) => {
     // throw new Error(`Complaint With Id ${complaintId} Not Found`);
     // }
   } catch (err) {
+    console.log(err.message);
     res.status(400).json({
       status: "fail",
       error: err.message,

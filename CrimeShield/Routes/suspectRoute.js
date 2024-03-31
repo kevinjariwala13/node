@@ -12,6 +12,7 @@ const router = express.Router();
 // });
 
 router.route("/showdata").get(suspectController.showData);
+router.route("/singlesus").get(suspectController.findonesus);
 
 router
   .route("/insert")

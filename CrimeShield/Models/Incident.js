@@ -23,10 +23,10 @@ const incidentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // policestation: {
-  //    type: String,
-  //    required: true,
-  //  },
+  policestation: {
+    type: String,
+    required: true,
+  },
   dateofincident: {
     type: Date,
   },
@@ -46,6 +46,11 @@ const incidentSchema = new mongoose.Schema({
     type: String,
     required: false,
     default: null,
+  },
+  status: {
+    type: String,
+    required: true,
+    default: "Pending",
   },
 });
 

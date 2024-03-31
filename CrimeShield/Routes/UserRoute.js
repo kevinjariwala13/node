@@ -95,6 +95,23 @@ router.get("/logout", (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const data = await User.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        data,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      error: err,
+    });
+  }
+});
+
 // To generate reset password url for the user.
 router.post("/password/reset", async (req, res, next) => {
   try {

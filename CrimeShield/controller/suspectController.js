@@ -67,7 +67,24 @@ const showData = async (req, res) => {
 
 const showonerecord = async (req, res) => {
   try {
-    const data = await Suspect.findOne(req.params.id);
+    const data = await Suspect.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        data,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      error: err.message,
+    });
+  }
+};
+
+const findonesus = async (req, res) => {
+  try {
+    const data = await Suspect.find(req.query);
     res.status(200).json({
       status: "success",
       data: {
@@ -126,4 +143,5 @@ module.exports = {
   updateSuspect,
   deleteSuspect,
   upload,
+  findonesus,
 };
