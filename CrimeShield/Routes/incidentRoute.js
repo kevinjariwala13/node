@@ -12,6 +12,7 @@ const router = express.Router();
 // });
 
 router.route("/").get(incidentController.showData);
+router.route("/mycomplaints").get(incidentController.mycomplaints);
 
 router
   .route("/insert")
