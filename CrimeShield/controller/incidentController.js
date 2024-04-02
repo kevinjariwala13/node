@@ -46,6 +46,8 @@ const createIncident = async (req, res) => {
       location,
       nameofsus,
       additionalinfo,
+      firstname,
+      lastname,
     } = req.body;
     if (req.file) {
       req.body.evidence = req.file.filename;
@@ -63,6 +65,8 @@ const createIncident = async (req, res) => {
       location,
       nameofsus,
       additionalinfo,
+      firstname,
+      lastname,
       evidence: req.file.originalname,
     });
     res.status(201).json({

@@ -5,6 +5,14 @@ const incidentSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "users",
   },
+  firstname: {
+    type: String,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+  },
   category: {
     type: String,
     required: true,
