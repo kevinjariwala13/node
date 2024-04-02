@@ -101,6 +101,23 @@ const showData = async (req, res) => {
   }
 };
 
+const mycomplaints = async (req, res) => {
+  try {
+    const data = await Incident.find(req.query);
+    res.status(200).json({
+      status: "success",
+      data: {
+        data,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      error: err.message,
+    });
+  }
+};
+
 const showonerecord = async (req, res) => {
   try {
     const data = await Incident.findById(req.params.id);
@@ -162,4 +179,5 @@ module.exports = {
   updateIncident,
   deleteIncident,
   upload,
+  mycomplaints,
 };
