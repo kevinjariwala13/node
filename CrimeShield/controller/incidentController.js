@@ -104,6 +104,22 @@ const showData = async (req, res) => {
     });
   }
 };
+const searchComplaint = async (req, res) => {
+  try {
+    const data = await Incident.find(req.query);
+    res.status(200).json({
+      status: "success",
+      data: {
+        data,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      error: err,
+    });
+  }
+};
 
 const mycomplaints = async (req, res) => {
   try {
@@ -184,4 +200,5 @@ module.exports = {
   deleteIncident,
   upload,
   mycomplaints,
+  searchComplaint,
 };
