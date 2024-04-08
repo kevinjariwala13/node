@@ -20,20 +20,23 @@ const createSuspect = async (req, res) => {
   console.log(req.body.suspect);
   console.log(req.body);
   try {
-    const { incidentId, susname, sussocial, sususername, otherdetails } =
-      req.body;
+    // const { incidentId, susname, sussocial, sususername, otherdetails } =
+    //   req.body;
     if (req.file) {
-      req.body.suspect = req.file.filename;
+      req.body.susphoto = req.file.originalname;
     }
     // const suspect = req.body.suspect;
-    const data = await Suspect.create({
-      incidentId,
-      susname,
-      sussocial,
-      sususername,
-      susphoto: req.file.originalname,
-      otherdetails,
-    });
+    const data = await Suspect.create(
+      req.body
+      //   {
+      //   incidentId,
+      //   susname,
+      //   sussocial,
+      //   sususername,
+      //   susphoto: req.file.originalname,
+      //   otherdetails,
+      // }
+    );
     res.status(201).json({
       status: "success",
       data: {

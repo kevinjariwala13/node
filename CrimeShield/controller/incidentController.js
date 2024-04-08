@@ -35,40 +35,43 @@ const upload = multer({
 
 const createIncident = async (req, res) => {
   try {
-    const {
-      category,
-      state,
-      city,
-      userId,
-      policestation,
-      dateofincident,
-      reasonofdelay,
-      location,
-      nameofsus,
-      additionalinfo,
-      firstname,
-      lastname,
-    } = req.body;
+    // const {
+    //   category,
+    //   state,
+    //   city,
+    //   userId,
+    //   policestation,
+    //   dateofincident,
+    //   reasonofdelay,
+    //   location,
+    //   nameofsus,
+    //   additionalinfo,
+    //   firstname,
+    //   lastname,
+    // } = req.body;
     if (req.file) {
-      req.body.evidence = req.file.filename;
+      req.body.evidence = req.file.originalname;
     }
     console.log(req.file);
     console.log(req.body);
-    const data = await Incident.create({
-      category,
-      state,
-      city,
-      userId,
-      policestation,
-      dateofincident,
-      reasonofdelay,
-      location,
-      nameofsus,
-      additionalinfo,
-      firstname,
-      lastname,
-      evidence: req.file.originalname,
-    });
+    const data = await Incident.create(
+      req.body
+      //   {
+      //   category,
+      //   state,
+      //   city,
+      //   userId,
+      //   policestation,
+      //   dateofincident,
+      //   reasonofdelay,
+      //   location,
+      //   nameofsus,
+      //   additionalinfo,
+      //   firstname,
+      //   lastname,
+      //   evidence: req.file.originalname,
+      // }
+    );
     res.status(201).json({
       status: "success",
       data: {
