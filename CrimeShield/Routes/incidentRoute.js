@@ -8,7 +8,7 @@ const router = express.Router();
 // router.route('/user/createuser').post(incidentController.createUser);
 
 // router.get("/get", async (req, res) => {
-//   return res.status(404).json({ msg: "Hello Lawdwe!" });
+//   return res.status(404).json({ msg: "Hello !" });
 // });
 
 router.route("/").get(incidentController.showData);
