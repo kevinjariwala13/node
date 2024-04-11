@@ -67,6 +67,21 @@ router.get("/get", async (req, res, next) => {
   }
 });
 
+router.get("/count", async (req, res) => {
+  try {
+    const data = await User.find(req.query);
+    res.status(200).json({
+      status: "success",
+      length: data.length,
+    });
+  } catch {
+    res.status(400).json({
+      status: "fail",
+      error: err.message,
+    });
+  }
+});
+
 //To display Registered users to admin.
 router.get("/display", async (req, res) => {
   const data = await User.find();

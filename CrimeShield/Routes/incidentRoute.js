@@ -14,7 +14,7 @@ const router = express.Router();
 router.route("/").get(incidentController.showData);
 router.route("/search").get(incidentController.searchComplaint);
 router.route("/mycomplaints").get(incidentController.mycomplaints);
-
+router.route("/countresult").get(incidentController.countresult);
 router
   .route("/insert")
   .post(incidentController.upload, incidentController.createIncident);
