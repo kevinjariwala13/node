@@ -23,7 +23,7 @@ router
   .get(suspectController.showonerecord)
   .patch(suspectController.updateSuspect)
   .delete(suspectController.deleteSuspect);
-
+router.route("/").delete(suspectController.deleteSuspectsByIncidentId);
 // router.route("/showdata/:id").get(suspectController.showonerecord);
 
 // router.post("/login", async (req, res) => {

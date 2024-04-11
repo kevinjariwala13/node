@@ -138,6 +138,25 @@ const deleteSuspect = async (req, res) => {
     });
   }
 };
+const deleteSuspectsByIncidentId = async (req, res) => {
+  const incidentId = req.query;
+  console.log(incidentId);
+  console.log("hiiii");
+  console.log(req.query);
+  try {
+    const data = await Suspect.deleteMany(incidentId);
+
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      error: err.message,
+    });
+  }
+};
 
 module.exports = {
   createSuspect,
@@ -147,4 +166,5 @@ module.exports = {
   deleteSuspect,
   upload,
   findonesus,
+  deleteSuspectsByIncidentId,
 };
